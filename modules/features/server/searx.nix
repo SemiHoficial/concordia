@@ -12,7 +12,7 @@
         server = {
           port = 8080;
           bind_address = "0.0.0.0";
-          secret_key = "mSaX5DsHxXqUJpnUAG8O4zEYYeZi8g";
+          secret_key = "";
           limiter = false;
           public_instance = true;
         };

@@ -22,10 +22,10 @@
               osd-bar=no
               #
               # Video driver to use. The latest gpu-next is recommended.
-              vo=gpu-next
-              gpu-api=vulkan
-              hwdec=auto
-              hwdec-codecs=all
+              #vo=gpu-next
+              #gpu-api=vulkan
+              #hwdec=auto
+              #hwdec-codecs=all
               ###### High-quality screenshots
               screenshot-format=webp
               screenshot-webp-lossless=yes
