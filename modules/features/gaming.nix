@@ -11,7 +11,7 @@
     imports = [
       self.nixosModules.flatpak
     ];
-    #nixpkgs.overlays = [inputs.millennium.overlays.default];
+    nixpkgs.overlays = [inputs.millennium.overlays.default];
 
     programs = {
       gamemode.enable = true;
@@ -25,7 +25,7 @@
         #   '';
         # };
         enable = true;
-        #package = pkgs.millennium-steam;
+        package = pkgs.millennium-steam;
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
         # extraCompatPackages = with pkgs; [

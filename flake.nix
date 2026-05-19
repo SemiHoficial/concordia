@@ -16,8 +16,7 @@
 
     nixcord.url = "github:FlameFlag/nixcord";
 
-    millennium.url = "github:SteamClientHomebrew/Millennium/783a1866579f0486261d620a9ec052e18daa0966?dir=packages/nix";
-    millennium.inputs.nixpkgs.follows = "nixpkgs"; # was "nixpkgs-stable" which didn't exist
+    millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -33,23 +32,20 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flux.url = "github:IogaMaster/flux";
+    flux.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   nixConfig = {
     extra-substituters = [
       "https://cache.nixos-cuda.org"
-      "https://hyprland.cachix.org"
-      "https://vicinae.cachix.org"
     ];
     extra-trusted-substituters = [
       "https://cache.nixos-cuda.org"
-      "https://hyprland.cachix.org"
-      "https://vicinae.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc="
     ];
   };
 
