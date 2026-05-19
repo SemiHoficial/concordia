@@ -55,10 +55,10 @@
               alt+c script-message-to crop toggle-crop hard
               alt+e script-message-to encode set-timestamp encode_slice
 
-              CTRL+1 change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/Ani4K-v2/normal.glsl";
-              CTRL+2 change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/Ani4K-v2/compute.glsl";
-              CTRL+3 change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/AniSD/normal.glsl";
-              CTRL+4 change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/AniSD/compute.glsl";
+              CTRL+1 no-osd change-list glsl-shaders clr ""; change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/ani4K.glsl";
+              CTRL+2 no-osd change-list glsl-shaders clr ""; change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/ani4K_cmp.glsl";
+              CTRL+3 no-osd change-list glsl-shaders clr ""; change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/aniSD.glsl";
+              CTRL+4 no-osd change-list glsl-shaders clr ""; change-list glsl-shaders toggle "${self.packages.${pkgs.stdenv.hostPlatform.system}.mpv-shaders}/share/mpv/shaders/aniSD_cmp.glsl";
               CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
             '';
           }
