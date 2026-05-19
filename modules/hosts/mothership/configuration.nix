@@ -14,6 +14,8 @@
 
     modules = [
       self.nixosModules.mothershipConfig
+      {nixpkgs.overlays = [inputs.flux.overlays.default];}
+      inputs.flux.nixosModules.default
     ];
   };
 
@@ -52,7 +54,9 @@
       self.nixosModules.gaming
 
       self.nixosModules.hyprland
-      #self.nixosModules.kdePlasma
+      self.nixosModules.kdePlasma
+
+      #self.nixosModules.andromedaServer
     ];
 
     nixpkgs.config.allowUnfree = true;
@@ -68,11 +72,19 @@
       allowedTCPPorts = [
         4242
         8096
+        3004
       ];
       allowedUDPPorts = [
         4242
         8096
       ];
+    };
+
+    services.mealie = {
+      enable = true;
+      settings = {
+        ALLOW_SIGNUP = "true";
+      };
     };
 
     users.users."lucas" = {

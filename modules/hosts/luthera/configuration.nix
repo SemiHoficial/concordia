@@ -29,7 +29,6 @@
       self.nixosModules.sshd
 
       #self.nixosModules.virtualizationFull
-      #self.nixosModules.ollama
       self.nixosModules.searx
     ];
 
