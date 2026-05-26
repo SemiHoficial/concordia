@@ -11,8 +11,12 @@
     programs.hyprland = {
       enable = true;
       package = pkgsUnstable.hyprland;
+      portalPackage = pkgsUnstable.xdg-desktop-portal-hyprland;
+
       xwayland.enable = true;
+      withUWSM = true;
     };
+    programs.uwsm.enable = true;
 
     environment.systemPackages = [
       pkgs.hyprshot
