@@ -13,6 +13,7 @@
       #self.nixosModules.extra_hjem
       #self.nixosModules.gtk
       self.nixosModules.nix
+      self.nixosModules.security
     ];
 
     users.users.${config.preferences.user.name} = {
