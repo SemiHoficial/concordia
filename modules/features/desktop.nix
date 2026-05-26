@@ -14,6 +14,7 @@
       self.nixosModules.spotify
       self.nixosModules.localsend
       self.nixosModules.xserver
+      self.nixosModules.fonts
     ];
 
     programs.niri = {
@@ -39,14 +40,6 @@
       pkgs.obsidian
 
       selfpkgs.helium-browser
-    ];
-
-    fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      ubuntu-sans
-      cm_unicode
-      corefonts
-      unifont
     ];
 
     time.timeZone = "Europe/Bucharest";
