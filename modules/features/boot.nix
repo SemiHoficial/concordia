@@ -5,11 +5,13 @@
 }: {
   flake.nixosModules.boot = {
     pkgs,
+    pkgsUnstable,
     config,
     ...
   }: {
     boot = {
-      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = pkgsUnstable.linuxKernel.packages.linux_zen;
+      kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
 
       loader = {
         systemd-boot = {

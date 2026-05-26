@@ -14,7 +14,12 @@
 
     modules = [
       self.nixosModules.mothershipConfig
-      {nixpkgs.overlays = [inputs.flux.overlays.default];}
+      {
+        nixpkgs.overlays = [
+          inputs.flux.overlays.default
+          inputs.nix-cachyos-kernel.overlays.pinned
+        ];
+      }
       inputs.flux.nixosModules.default
     ];
   };
@@ -48,8 +53,8 @@
       self.nixosModules.lan-mouse
       self.nixosModules.vicinae
 
-      self.nixosModules.virtualizationFull
-      self.nixosModules.searx
+      self.nixosModules.virtualization
+      #self.nixosModules.searx
 
       self.nixosModules.gaming
 
@@ -63,7 +68,7 @@
 
     hardware.bluetooth.settings.General.FastConnectible = true;
 
-    services.dbus.implementation = "dbus";
+    services.dbus.implementation = "broker";
 
     users.users.${config.preferences.user.name}.extraGroups = ["i2c" "docker"];
 
@@ -87,13 +92,13 @@
       };
     };
 
-    users.users."lucas" = {
-      isNormalUser = true;
-      initialPassword = "1234";
-      description = "Its lucas!";
-      extraGroups = ["networkmanager"];
-      shell = pkgs.fish;
-    };
+    #    users.users."lucas" = {
+    #      isNormalUser = true;
+    #      initialPassword = "1234";
+    #      description = "Its lucas!";
+    #      extraGroups = ["networkmanager"];
+    #      shell = pkgs.fish;
+    #    };
 
     # mount hdd milkyway
     fileSystems."/mnt/milkyway" = {

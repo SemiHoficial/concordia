@@ -14,6 +14,8 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     nixcord.url = "github:FlameFlag/nixcord";
 
     millennium.url = "github:SteamClientHomebrew/Millennium/next?dir=packages/nix";
@@ -40,12 +42,14 @@
   nixConfig = {
     extra-substituters = [
       "https://cache.nixos-cuda.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     extra-trusted-substituters = [
       "https://cache.nixos-cuda.org"
     ];
     extra-trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
