@@ -1,6 +1,7 @@
 {inputs, ...}: {
   flake.nixosModules.nix = {
     pkgs,
+    lib,
     config,
     ...
   }: {
@@ -21,10 +22,24 @@
     };
     */
 
-    nix.settings.auto-optimise-store = true;
+    nix = {
+      # garbaj collect
+      gc = {
+        automatic = true;
+        options = "--delete-older-than 7d";
+        randomizedDelaySec = "1h";
+      };
 
-    nix.settings.experimental-features = ["nix-command" "flakes"];
+      settings = {
+        auto-optimise-store = true;
+
+        experimental-features = ["nix-command" "flakes"];
+        extra-experimental-features = ["nix-command" "flakes"];
+      };
+    };
+
     programs.nix-ld.enable = true;
+
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
