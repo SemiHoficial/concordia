@@ -3,22 +3,6 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.connectivity = {
-    imports = [
-      self.nixosModules.localsend
-      self.nixosModules.kde-connect
-    ];
-  };
-  flake.nixosModules.localsend = {pkgs, ...}: {
-    programs.localsend = {
-      enable = true;
-      openFirewall = true;
-    };
-    environment.systemPackages = [pkgs.jocalsend];
-  };
-  flake.nixosModules.kde-connect = {pkgs, ...}: {
-    programs.kdeconnect.enable = true;
-  };
   flake.nixosModules.lan-mouse = {
     pkgs,
     config,
@@ -26,10 +10,13 @@
   }: {
     home-manager.users.${config.preferences.user.name} = {pkgs, ...}: {
       imports = [inputs.lan-mouse.homeManagerModules.default];
+
       programs.lan-mouse = {
         enable = true;
+        package = inputs.lan-mouse.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
         systemd = true;
-        # package = inputs.lan-mouse.packages.${pkgs.stdenv.hostPlatform.system}.default
+
         # Optional configuration in nix syntax, see config.toml for available options
         settings = {
           "release_bind" = ["KeyA" "KeyS" "KeyD" "KeyF"];
@@ -57,6 +44,8 @@
           ];
         };
       };
+
+      networking.firewall.allowedUDPPorts = [4242];
     };
   };
 }
