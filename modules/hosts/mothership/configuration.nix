@@ -53,6 +53,8 @@
       self.nixosModules.lan-mouse
       self.nixosModules.vicinae
 
+      self.nixosModules.qbittorrent
+
       self.nixosModules.virtualization
       #self.nixosModules.searx
 
@@ -70,17 +72,29 @@
 
     services.dbus.implementation = "broker";
 
-    users.users.${config.preferences.user.name}.extraGroups = ["i2c" "docker"];
+    users.users.${config.preferences.user.name}.extraGroups = ["i2c" "milkyway"];
+
+    # mount hdd milkyway
+    fileSystems."/mnt/milkyway" = {
+      device = "/dev/disk/by-uuid/e0868b55-28f5-4b72-b7ca-3486b03c2ac0";
+      fsType = "ext4";
+      options = [
+        "nofail" # learned from experience to add this >.<
+        "uid=missy"
+        "gid=milkyway"
+        "umask=002"
+      ];
+    };
+    # qbittorrent access to milkyway
+    users.users.qbittorrent.extraGroups = ["milkyway"];
 
     # --- network ---
     networking.firewall = {
       allowedTCPPorts = [
-        4242
         8096
         3004
       ];
       allowedUDPPorts = [
-        4242
         8096
       ];
     };
@@ -99,15 +113,6 @@
     #      extraGroups = ["networkmanager"];
     #      shell = pkgs.fish;
     #    };
-
-    # mount hdd milkyway
-    fileSystems."/mnt/milkyway" = {
-      device = "/dev/disk/by-uuid/e0868b55-28f5-4b72-b7ca-3486b03c2ac0";
-      fsType = "ext4";
-      options = [
-        "nofail" # learned from experience to add this >.<
-      ];
-    };
 
     nixpkgs.overlays = [
       (final: prev: {
