@@ -20,11 +20,7 @@
       #legcord.equicord.enable = true;
 
       config = {
-        autoUpdate = true;
-
         frameless = true;
-
-        enabledThemes = ["noctalia.theme.css"];
 
         plugins = {
           # QOL
