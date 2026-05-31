@@ -76,6 +76,8 @@
         pkgs.tesseract # image to text
         pkgs.uutils-coreutils-noprefix # rust coreutils replacement
 
+        pkgs.kitty # backup terminal
+
         # wrapped packages
         selfpkgs.fastfetch
         selfpkgs.qalc
