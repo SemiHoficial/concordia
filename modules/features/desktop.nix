@@ -5,7 +5,7 @@
     imports = [
       #self.nixosModules.gtk
 
-      self.nixosModules.pipewire
+      self.nixosModules.audio
       self.nixosModules.discord
       self.nixosModules.zenBrowser
       self.nixosModules.flatpak
@@ -33,8 +33,6 @@
       pkgs.kdePackages.okular
       pkgs.kdePackages.kate
       pkgs.kdePackages.ark
-
-      pkgs.pwvucontrol
 
       pkgs.wl-clipboard
       pkgs.vlc
