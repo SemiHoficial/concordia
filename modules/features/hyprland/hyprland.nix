@@ -5,13 +5,12 @@
 }: {
   flake.nixosModules.hyprland = {
     pkgs,
-    pkgsUnstable,
     ...
   }: {
     programs.hyprland = {
       enable = true;
-      package = pkgsUnstable.hyprland;
-      portalPackage = pkgsUnstable.xdg-desktop-portal-hyprland;
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
       xwayland.enable = true;
       withUWSM = true;

@@ -5,7 +5,6 @@
 }: {
   flake.nixosModules.boot = {
     pkgs,
-    pkgsUnstable,
     config,
     ...
   }: {

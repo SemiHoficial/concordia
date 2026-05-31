@@ -4,7 +4,7 @@
   ...
 }: {
   perSystem = {
-    pkgsUnstable,
+    pkgs,
     lib,
     ...
   }: let

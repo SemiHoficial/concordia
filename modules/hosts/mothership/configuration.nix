@@ -6,7 +6,7 @@
   flake.nixosConfigurations.mothership = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       host = "mothership";
-      pkgsUnstable = import inputs.nixpkgs-unstable {
+      pkgs-stable = import inputs.nixpkgs-stable {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -27,14 +27,9 @@
   flake.nixosModules.mothershipConfig = {
     config,
     pkgs,
-    pkgsUnstable,
     host,
     ...
-  }: let
-    blender-cuda = pkgsUnstable.blender.override {
-      cudaSupport = true;
-    };
-  in {
+  }: {
     imports = [
       self.nixosModules.mothershipHardware
       self.nixosModules.boot
@@ -136,17 +131,17 @@
 
       blender-cuda # 3d modelling, cuda version cuz nvidia
 
-      pkgsUnstable.godot # game engine
+      pkgs.godot # game engine
 
       pkgs.krita # painting
 
       pkgs.pixelorama # pixel art
 
       pkgs.obs-studio # recording
-      pkgsUnstable.kdePackages.kdenlive # video editing
-      pkgsUnstable.davinci-resolve # also video editing but a bit goofy on linux
+      pkgs.kdePackages.kdenlive # video editing
+      pkgs.davinci-resolve # also video editing but a bit goofy on linux
 
-      pkgsUnstable.kicad # electronics design cad
+      pkgs.kicad # electronics design cad
     ];
 
     system.stateVersion = "25.05";
