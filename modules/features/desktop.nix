@@ -6,10 +6,10 @@
       #self.nixosModules.gtk
 
       self.nixosModules.pipewire
-      self.nixosModules.terminal
       self.nixosModules.discord
       self.nixosModules.zenBrowser
       self.nixosModules.flatpak
+      self.nixosModules.appimage
       self.nixosModules.mpv
       self.nixosModules.spotify
       self.nixosModules.localsend
@@ -25,6 +25,8 @@
     services.libinput.enable = true;
 
     environment.systemPackages = [
+      selfpkgs.terminal
+
       pkgs.kdePackages.dolphin-plugins
       pkgs.kdePackages.gwenview
       pkgs.kdePackages.dolphin
