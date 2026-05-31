@@ -34,7 +34,7 @@
       alias copy="${lib.getExe' pkgs.wl-clipboard "wl-copy"}";
       alias man="${lib.getExe pkgs.bat-extras.batman.out}";
       alias space="${lib.getExe pkgs.dua} interactive";
-      alias rebuild="sudo nixos-rebuild switch --flake ~/concordia##$(hostname)";
+      alias rebuild="sudo nixos-rebuild switch --flake ~/concordia#$(hostname)";
       alias rebuild-boot="sudo nixos-rebuild boot --flake ~/concordia#$(hostname)";
       alias fish_greeting="${lib.getExe selfpkgs.fastfetch}";
     '';
