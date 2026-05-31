@@ -22,8 +22,8 @@
 
       plymouth = {
         enable = true;
-        themePackages = config.preferences.plymouthTheme.packages;
-        theme = config.preferences.plymouthTheme.name;
+        themePackages = config.prefer.theme.plymouth.packages;
+        theme = config.prefer.theme.plymouth.name;
       };
       # silent boot
       #consoleLogLevel = 3;

@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.intel-graphics = {pkgs, ...}: {
-    preferences.graphics.vaapi = true;
+    prefer.graphics.vaapi = true;
     hardware = {
       graphics = {
         enable = true;
@@ -32,9 +32,10 @@
   };
 
   flake.nixosModules.nvidia = {
-    preferences.graphics.nvidia = true;
+    prefer.graphics.nvidia = true;
     hardware.graphics = {
       enable = true;
+
       enable32Bit = true;
     };
 

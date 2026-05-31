@@ -72,7 +72,7 @@
 
     services.dbus.implementation = "broker";
 
-    users.users.${config.preferences.user.name}.extraGroups = ["i2c" "milkyway"];
+    users.users.${config.prefer.user.name}.extraGroups = ["i2c" "milkyway"];
 
     # mount hdd milkyway
     fileSystems."/mnt/milkyway" = {

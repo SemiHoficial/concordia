@@ -16,10 +16,10 @@
       self.nixosModules.security
     ];
 
-    users.users.${config.preferences.user.name} = {
+    users.users.${config.prefer.user.name} = {
       isNormalUser = true;
       initialPassword = "1234";
-      description = "Its ${config.preferences.user.name}!";
+      description = "Its ${config.prefer.user.name}!";
       extraGroups = ["wheel" "networkmanager"];
       shell = pkgs.fish;
     };

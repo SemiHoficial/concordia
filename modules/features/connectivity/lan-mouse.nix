@@ -8,7 +8,7 @@
     config,
     ...
   }: {
-    home-manager.users.${config.preferences.user.name} = {pkgs, ...}: {
+    home-manager.users.${config.prefer.user.name} = {pkgs, ...}: {
       imports = [inputs.lan-mouse.homeManagerModules.default];
 
       programs.lan-mouse = {

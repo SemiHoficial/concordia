@@ -4,7 +4,7 @@
   ...
 }: {
   flake.nixosModules.vicinae = {config, ...}: {
-    home-manager.users.${config.preferences.user.name} = {pkgs, ...}: {
+    home-manager.users.${config.prefer.user.name} = {pkgs, ...}: {
       imports = [inputs.vicinae.homeManagerModules.default];
 
       services.vicinae = {

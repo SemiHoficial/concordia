@@ -14,7 +14,7 @@
         sddm = {
           enable = true;
           wayland.enable = true;
-          theme = config.preferences.sddmTheme.name;
+          theme = config.prefer.theme.sddm.name;
           extraPackages = [
             pkgs.kdePackages.qtsvg
             pkgs.kdePackages.qtvirtualkeyboard
@@ -26,6 +26,6 @@
         #defaultSession = ""; # eg. niri, hyprland
       };
     };
-    environment.systemPackages = config.preferences.sddmTheme.packages;
+    environment.systemPackages = config.prefer.theme.sddm.packages;
   };
 }

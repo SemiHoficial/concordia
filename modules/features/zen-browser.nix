@@ -11,7 +11,7 @@
   }: {
     imports = [self.nixosModules.homeManager];
 
-    home-manager.users.${config.preferences.user.name} = {pkgs, ...}: {
+    home-manager.users.${config.prefer.user.name} = {pkgs, ...}: {
       imports = [
         inputs.zen-browser.homeModules.beta
       ];
@@ -288,7 +288,7 @@
               "network.cookie.cookieBehavior" = 5;
               "dom.battery.enabled" = lock-false;
             }
-            // lib.optionalAttrs config.preferences.graphics.vaapi {
+            // lib.optionalAttrs config.prefer.graphics.vaapi {
               "media.ffmpeg.vaapi.enabled" = true;
             };
 

@@ -11,7 +11,7 @@
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "no";
-        AllowUsers = ["${config.preferences.user.name}"];
+        AllowUsers = ["${config.prefer.user.name}"];
       };
     };
   };

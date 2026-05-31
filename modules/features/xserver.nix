@@ -11,7 +11,7 @@
     services = {
       xserver = {
         enable = true;
-        videoDrivers = lib.mkIf config.preferences.graphics.nvidia ["nvidia"];
+        videoDrivers = lib.mkIf config.prefer.graphics.nvidia ["nvidia"];
       };
     };
   };

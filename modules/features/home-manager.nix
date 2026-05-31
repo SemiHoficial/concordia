@@ -14,8 +14,8 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      users.${config.preferences.user.name} = {
-        home.stateVersion = "25.05";
+      users.${config.prefer.user.name} = {
+        home.stateVersion = "26.05";
         programs.home-manager.enable = true;
       };
     };

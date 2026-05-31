@@ -11,7 +11,7 @@
     imports = [inputs.nixcord.nixosModules.nixcord];
     programs.nixcord = {
       enable = true;
-      user = "${config.preferences.user.name}";
+      user = "${config.prefer.user.name}";
 
       discord.vencord.enable = false;
       discord.equicord.enable = true;

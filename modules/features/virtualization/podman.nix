@@ -18,7 +18,7 @@
       #dockerSocket.enable = true;
     };
 
-    users.users.${config.preferences.user.name}.extraGroups = ["podman"];
+    users.users.${config.prefer.user.name}.extraGroups = ["podman"];
 
     environment.systemPackages = [pkgs.podman-tui];
   };

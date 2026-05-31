@@ -22,14 +22,14 @@
     # ];
 
     # taken from https://nixos.wiki/wiki/Virt-manager
-    home-manager.users.${config.preferences.user.name}.dconf.settings = {
+    home-manager.users.${config.prefer.user.name}.dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
       };
     };
 
-    users.users.${config.preferences.user.name} = {
+    users.users.${config.prefer.user.name} = {
       extraGroups = ["libvirtd"];
     };
   };
