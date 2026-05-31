@@ -8,9 +8,11 @@
     lib,
     ...
   }: let
-    pkgs = pkgsUnstable;
-  in {
-    packages.mpv = let
+    mkMpv = {
+      screenshotDir ? "~/Pictures/screenshots",
+      videoDir ? "~/Videos",
+      tempDir ? "/tmp",
+    }: let
       mpvConfig = pkgs.linkFarm "mpv-config" (
         [
           {
@@ -31,7 +33,7 @@
               screenshot-webp-lossless=yes
               screenshot-high-bit-depth=yes
               screenshot-sw=no
-              screenshot-directory="~/Pictures/screenshots/mpv"
+              screenshot-directory="${screenshotDir}/mpv"
               screenshot-template="%f-%wH.%wM.%wS.%wT-#%#00n"
             '';
           }
@@ -66,7 +68,7 @@
         ++ mpvScriptOpts {
           modernz = {
             jump_amount = "5";
-            download_path = "~/Videos";
+            download_path = "${videoDir}";
             ontop_button = false;
             button_glow_amount = "2";
             fullscreen_button = false;
@@ -97,10 +99,10 @@
             close_webtorrent = true;
             remove_files = true;
             webtorrent_flags = "['-d', '10000']";
-            download_directory = "/tmp/webtorrent-hook";
+            download_directory = "${tempDir}/mpv-webtorrent-download";
             show_speed = false;
             remember_last_played = true;
-            remember_directory = "/tmp/webtorrent-remember";
+            remember_directory = "${tempDir}/mpv-webtorrent-remember";
           };
         }
       );
@@ -165,6 +167,8 @@
         };
         flagSeparator = "=";
       };
+  in {
+    packages.mpv = pkgs.lib.makeOverridable mkMpv {};
   };
 
   flake.nixosModules.mpv = {
@@ -173,7 +177,11 @@
     ...
   }: {
     environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.mpv
+      (self.packages.${pkgs.stdenv.hostPlatform.system}.mpv.override {
+        screenshotDir = config.prefer.images.screenshotDir;
+        videoDir = config.prefer.videos.directory;
+        tempDir = config.prefer.temp.directory;
+      })
     ];
   };
 }
