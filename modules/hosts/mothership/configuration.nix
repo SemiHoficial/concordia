@@ -56,7 +56,7 @@
       self.nixosModules.gaming
 
       self.nixosModules.hyprland
-      self.nixosModules.kdePlasma
+      # self.nixosModules.kdePlasma
 
       #self.nixosModules.andromedaServer
     ];
@@ -94,12 +94,12 @@
       ];
     };
 
-    services.mealie = {
-      enable = true;
-      settings = {
-        ALLOW_SIGNUP = "true";
-      };
-    };
+    #services.mealie = {
+    #  enable = true;
+    #  settings = {
+    #    ALLOW_SIGNUP = "true";
+    #  };
+    #};
 
     #    users.users."lucas" = {
     #      isNormalUser = true;
@@ -129,11 +129,9 @@
       pkgs.ddcui # ui for ddcutil
       pkgs.neovim
 
-      blender-cuda # 3d modelling, cuda version cuz nvidia
-
       pkgs.godot # game engine
 
-      pkgs.krita # painting
+      #     pkgs.krita # painting
 
       pkgs.pixelorama # pixel art
 

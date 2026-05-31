@@ -20,6 +20,6 @@
 
     users.users.${config.prefer.user.name}.extraGroups = ["podman"];
 
-    environment.systemPackages = [pkgs.podman-tui];
+    environment.systemPackages = [pkgs.podman-tui pkgs.podman-compose];
   };
 }

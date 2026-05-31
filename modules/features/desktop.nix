@@ -35,6 +35,7 @@
       pkgs.kdePackages.ark
 
       pkgs.wl-clipboard
+      pkgs.cliphist
       pkgs.vlc
 
       pkgs.obsidian
