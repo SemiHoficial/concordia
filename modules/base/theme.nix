@@ -6,6 +6,14 @@
   }: {
     options.prefer = {
       theme = {
+        fastfetch = {
+          # currently does nothing
+          logo = lib.mkOption {
+            type = lib.types.path;
+            default = ../../assets/fastfetch/nixos-logo.png;
+          };
+        };
+
         plymouth = {
           name = lib.mkOption {
             type = lib.types.str;
