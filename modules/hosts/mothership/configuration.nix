@@ -27,7 +27,6 @@
   flake.nixosModules.mothershipConfig = {
     config,
     pkgs,
-    host,
     ...
   }: {
     imports = [
@@ -52,6 +51,7 @@
 
       self.nixosModules.virtualization
       #self.nixosModules.searx
+      self.nixosModules.cgit
 
       self.nixosModules.gaming
 
