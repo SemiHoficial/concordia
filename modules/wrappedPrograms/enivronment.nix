@@ -9,18 +9,7 @@
     ...
   }: let
     selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
-  in {
-    packages.terminal = inputs.wrappers.lib.wrapPackage {
-      inherit pkgs;
-      package = selfpkgs.ghostty;
-
-      args = [
-        "-e"
-        "${lib.getExe selfpkgs.environment}"
-      ];
-    };
-
-    packages.environment = inputs.wrappers.lib.wrapPackage {
+    mkEnvironment = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = selfpkgs.fish;
 
@@ -86,5 +75,17 @@
         EDITOR = lib.getExe pkgs.neovim;
       };
     };
+  in {
+    packages.terminal = inputs.wrappers.lib.wrapPackage {
+      inherit pkgs;
+      package = selfpkgs.ghostty;
+
+      args = [
+        "-e"
+        "${lib.getExe selfpkgs.environment}"
+      ];
+    };
+
+    packages.environment = mkEnvironment;
   };
 }
