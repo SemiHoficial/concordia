@@ -11,8 +11,8 @@
       src = pkgs.fetchFromGitHub {
         owner = "SemiHoficial";
         repo = "missy-paintings";
-        rev = "60bb9065fda972916795a389f46730a92869fb7a";
-        hash = "sha256-BsuI25fWqhp5+R1mI7F0TOU4QU5rQg/TbYGFpHBSgv0=";
+        rev = "3fe95174ac78c46dedd9be58e5c6d94df2d7cdda";
+        hash = "sha256-uVOjFL97zzvtk4NobR/uJ3XXU4iJgdpBjjpodhrz1Tg=";
       };
 
       nativeBuildInputs = [pkgs.imagemagick];

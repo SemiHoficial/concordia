@@ -39,6 +39,8 @@
       self.nixosModules.desktop
       self.nixosModules.sddm
 
+      self.nixosModules.tablet
+
       self.nixosModules.nvidia
       self.nixosModules.sshd
       self.nixosModules.bluetooth
